@@ -1,7 +1,6 @@
 package com.nullptrexc.model.domain.mcmeta.overlays;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class OverlayEntry {
     private String directory;
