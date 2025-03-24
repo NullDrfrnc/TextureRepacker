@@ -14,10 +14,6 @@ public class TexturePack {
     private Features features;
     private Overlays overlays;
 
-//    TexturePack() {
-//        this.pack = new Pack();
-//    }
-
     public Pack getPack() {
         return pack;
     }
