@@ -3,6 +3,7 @@ package com.nullptrexc.model.domain.mcmeta;
 import com.nullptrexc.model.domain.PackFormat;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -25,6 +26,36 @@ public class Pack {
         this.description = description;
     }
 
+    /**
+     * Creates a Pack object from a JSON object.
+     *
+     * @param json the JSON object containing the pack data
+     * @return a Pack object created from the JSON data
+     */
+    public static Pack fromJson(JSONObject json) {
+        if(json.optJSONArray("supported_formats") == null) {
+            return new Pack(
+                    PackFormat.getFormatByPackFormat(json.getInt("pack_format")),
+                    json.getString("description")
+            );
+        }
+        return new Pack(
+                PackFormat.getFormatByPackFormat(json.getInt("pack_format")),
+                PackFormat.convertJsonArrayToList(json.optJSONArray("supported_formats")),
+                json.getString("description")
+        );
+    }
+
+
+    @Override
+    public String toString() {
+        return "Pack{" +
+                "pack_format=" + pack_format +
+                ", supported_formats=" + supported_formats +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
     public PackFormat getPackFormat() {
         return pack_format;
     }
@@ -43,6 +74,7 @@ public class Pack {
         return this;
     }
 
+    @NotNull
     public String getDescription() {
         return description;
     }

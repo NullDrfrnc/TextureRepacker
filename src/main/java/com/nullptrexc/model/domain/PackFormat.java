@@ -1,6 +1,12 @@
 package com.nullptrexc.model.domain;
 
+import org.json.JSONArray;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public enum PackFormat {
     V_1(1, "1.6.1", "1.8.9"),
@@ -60,5 +66,17 @@ public enum PackFormat {
      */
     public static PackFormat getFormatByPackFormat(int packFormat) {
         return Arrays.stream(values()).filter(v -> v.packFormat >= packFormat).findFirst().orElse(null);
+    }
+
+    /**
+     * Converts a JSONArray of pack formats to a list of PackFormat enum values.
+     *
+     * @param jsonArray the JSONArray to convert
+     * @return a list of PackFormat enum values
+     */
+    public static ArrayList<PackFormat> convertJsonArrayToList(JSONArray jsonArray) {
+        return IntStream.range(0, jsonArray.length())
+                .mapToObj(i -> PackFormat.getFormatByPackFormat(jsonArray.getInt(i)))
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 }

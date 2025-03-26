@@ -1,6 +1,7 @@
 package com.nullptrexc;
 
 import com.nullptrexc.model.domain.TexturePack;
+import com.nullptrexc.model.domain.mcmeta.Pack;
 import org.json.JSONObject;
 
 import java.io.File;
@@ -31,8 +32,10 @@ public class TextureRepackerApp {
         try {
             String mcMetaContent = new String(Files.readAllBytes(mcMeta.toPath()));
             assert !mcMetaContent.isEmpty() : "pack.mcmeta is an empty file!";
+
             JSONObject json = new JSONObject(mcMetaContent);
-            System.out.println(json);
+            Pack pack = Pack.fromJson(json.getJSONObject("pack"));
+            System.out.println(pack);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
