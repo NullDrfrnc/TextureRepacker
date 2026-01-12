@@ -13,6 +13,7 @@
         <jdk.version>21</jdk.version>
         
         <picocli.version>4.7.7</picocli.version>
+        <junit.version>6.1.0-M1</junit.version>
         
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -23,6 +24,13 @@
             <artifactId>picocli</artifactId>
             <version>${picocli.version}</version>
             <scope>compile</scope>
+        </dependency>
+        <!-- Source: https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
