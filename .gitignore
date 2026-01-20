@@ -35,3 +35,7 @@ build/
 ### Mac OS ###
 .DS_Store
 /.mvn/
+
+### Project Specifics ###
+/src/main/resources/debugpacks/
+/logs/

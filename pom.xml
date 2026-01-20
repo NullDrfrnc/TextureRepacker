@@ -13,19 +13,59 @@
         <jdk.version>21</jdk.version>
         
         <picocli.version>4.7.7</picocli.version>
+        <apache-commons-vfs2.version>2.10.0</apache-commons-vfs2.version>
+        <jackson.version>3.0.3</jackson.version>
+        <logback-classic.version>1.5.24</logback-classic.version>
+        <slf4j-api.version>2.0.17</slf4j-api.version>
         <junit.version>6.1.0-M1</junit.version>
+
+        <!-- TAKE ALL THE COMPILER TARGETS RAAAAHHHHH -->
+        <maven.compiler.source>${jdk.version}</maven.compiler.source>
+        <maven.compiler.target>${jdk.version}</maven.compiler.target>
+        <maven.compiler.release>${jdk.version}</maven.compiler.release>
         
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
     <dependencies>
+        <!-- CLI command handling -->
         <dependency>
             <groupId>info.picocli</groupId>
             <artifactId>picocli</artifactId>
             <version>${picocli.version}</version>
             <scope>compile</scope>
         </dependency>
-        <!-- Source: https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        
+        <!-- Filesystem management (What the FUCK where you smoking when you made yours java???) -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-vfs2</artifactId>
+            <version>${apache-commons-vfs2.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        
+        <!-- Logging -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback-classic.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Parsing -->
+        <dependency>
+            <groupId>tools.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        
+        <!-- Testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>

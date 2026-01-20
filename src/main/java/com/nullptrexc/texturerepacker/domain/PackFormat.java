@@ -1,4 +1,7 @@
-package com.nullptrexc.domain;
+package com.nullptrexc.texturerepacker.domain;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 import java.util.Arrays;
 
@@ -6,128 +9,128 @@ public enum PackFormat {
     V1(
             "1.6.1",
             "1.8.9",
-            "1"
+            1
     ),
     V2(
             "1.9",
             "1.10.2",
-            "2"
+            2
     ),
     V3(
             "1.11",
             "1.12.2",
-            "3"
+            3
     ),
     V4(
             "1.13",
             "1.14.4",
-            "4"
+            4
     ),
     V5(
             "1.15",
             "1.16.1",
-            "5"
+            5
     ),
     V6(
             "1.16.2",
             "1.16.5",
-            "6"
+            6
     ),
     V7(
             "1.17",
             "1.17.1",
-            "7"
+            7
     ),
     V8(
             "1.18",
             "1.18.2",
-            "8"
+            8
     ),
     V9(
             "1.19",
             "1.19.2",
-            "9"
+            9
     ),
     V12(
             "1.19.3",
             "1.19.3",
-            "12"
+            12
     ),
     V13(
             "1.19.4",
             "1.19.4",
-            "13"
+            13
     ),
     V15(
             "1.20",
             "1.20.1",
-            "15"
+            15
     ),
     V18(
             "1.20.2",
             "1.20.2",
-            "18"
+            18
     ),
     V22(
             "1.20.3",
             "1.20.4",
-            "22"
+            22
     ),
     V32(
             "1.20.5",
             "1.20.6",
-            "32"
+            32
     ),
     V34(
             "1.21",
             "1.21.1",
-            "34"
+            34
     ),
     V42(
             "1.21.2",
             "1.21.3",
-            "42"
+            42
     ),
     V46(
             "1.21.4",
             "1.21.4",
-            "46"
+            46
     ),
     V55(
             "1.21.5",
             "1.21.5",
-            "55"
+            55
     ),
     V63(
             "1.21.6",
             "1.21.6",
-            "63"
+            63
     ),
     V64(
             "1.21.7",
             "1.21.8",
-            "64"
+            64
     ),
-    V69( //nice
+    //nice
+    V69( 
             "1.21.9",
             "1.21.10",
-            "69"
+            69
     ),
     V75(
             "1.21.11",
             "1.21.11",
-            "75"
-    )
-    ;
+            75
+    );
 
     private final MCVersion min;
     private final MCVersion max;
-    private final String version;
+    private final int format;
 
-    PackFormat(String min, String max, String version) {
+    PackFormat(String min, String max, int version) {
         this.min = new MCVersion(min);
         this.max = new MCVersion(max);
-        this.version = version;
+        this.format = version;
     }
 
     public boolean isCompatible(MCVersion input) {
@@ -141,9 +144,10 @@ public enum PackFormat {
                 .orElse(null);
     }
 
-    public static PackFormat findPackFormat(String version) {
+    @JsonCreator
+    public static PackFormat findPackFormat(int version) {
         return Arrays.stream(PackFormat.values())
-                .filter(p -> p.getVersion().equals(version))
+                .filter(p -> p.getFormat() == version)
                 .findFirst()
                 .orElse(null);
     }
@@ -156,7 +160,8 @@ public enum PackFormat {
         return max;
     }
 
-    public String getVersion() {
-        return version;
+    @JsonValue
+    public int getFormat() {
+        return format;
     }
 }

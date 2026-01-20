@@ -1,7 +1,7 @@
-package com.nullptrexc;
+package com.nullptrexc.texturerepacker;
 
-import com.nullptrexc.domain.MCVersion;
-import com.nullptrexc.domain.PackFormat;
+import com.nullptrexc.texturerepacker.domain.MCVersion;
+import com.nullptrexc.texturerepacker.domain.PackFormat;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -74,17 +74,17 @@ public class VersionParsingTest {
     @Test
     @DisplayName("Should find pack format by version string correctly")
     void testFindByVersionString() {
-        assertEquals(PackFormat.V1, PackFormat.findPackFormat("1"));
-        assertEquals(PackFormat.V6, PackFormat.findPackFormat("6"));
-        assertEquals(PackFormat.V34, PackFormat.findPackFormat("34"));
-        assertEquals(PackFormat.V69, PackFormat.findPackFormat("69")); // nice
-        assertEquals(PackFormat.V75, PackFormat.findPackFormat("75"));
+        assertEquals(PackFormat.V1, PackFormat.findPackFormat(1));
+        assertEquals(PackFormat.V6, PackFormat.findPackFormat(6));
+        assertEquals(PackFormat.V34, PackFormat.findPackFormat(34));
+        assertEquals(PackFormat.V69, PackFormat.findPackFormat(69)); // nice
+        assertEquals(PackFormat.V75, PackFormat.findPackFormat(75));
 
-        assertNull(PackFormat.findPackFormat("0"));
-        assertNull(PackFormat.findPackFormat("-1"));
-        assertNull(PackFormat.findPackFormat("300"));
-        assertNull(PackFormat.findPackFormat("10")); // Skipped pack format number
-        assertNull(PackFormat.findPackFormat("11")); // Skipped pack format number
+        assertNull(PackFormat.findPackFormat(0));
+        assertNull(PackFormat.findPackFormat(-1));
+        assertNull(PackFormat.findPackFormat(300));
+        assertNull(PackFormat.findPackFormat(10)); // Skipped pack format number
+        assertNull(PackFormat.findPackFormat(11)); // Skipped pack format number
     }
 
     @Test
@@ -115,7 +115,7 @@ public class VersionParsingTest {
     @Test
     @DisplayName("Nice")
     void testNice() {
-        assertEquals("69", PackFormat.V69.getVersion());
+        assertEquals(69, PackFormat.V69.getFormat());
         assertTrue(PackFormat.V69.isCompatible(new MCVersion("1.21.9")));
         assertTrue(PackFormat.V69.isCompatible(new MCVersion("1.21.10")));
     }

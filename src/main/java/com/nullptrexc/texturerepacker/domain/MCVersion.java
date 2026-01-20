@@ -1,4 +1,4 @@
-package com.nullptrexc.domain;
+package com.nullptrexc.texturerepacker.domain;
 
 public class MCVersion implements Comparable<MCVersion> {
     private final int major;
@@ -14,7 +14,7 @@ public class MCVersion implements Comparable<MCVersion> {
         minor = Integer.parseInt(parts[1]);
         patch = parts.length > 2 ? Integer.parseInt(parts[2]) : 0;
     }
-    
+
     @Override
     public String toString() {
         return major + "." + minor + "." + patch;
