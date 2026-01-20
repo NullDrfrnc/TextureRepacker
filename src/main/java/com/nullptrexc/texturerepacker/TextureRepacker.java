@@ -1,6 +1,6 @@
 package com.nullptrexc.texturerepacker;
 
-import com.nullptrexc.texturerepacker.domain.PackFormat;
+import com.nullptrexc.texturerepacker.core.domain.PackFormat;
 
 public class TextureRepacker {
     private final PackFormat targetedPackFormat;

@@ -1,0 +1,17 @@
+format: 1
+
+paths:
+  textures:
+    path: "assets/{namespace}/textures/{category}"
+    categories:
+      - blocks
+      - entity
+      - environment
+      - font
+      - gui
+      - items
+      - map
+      - misc
+      - models
+      - painting
+      - particle

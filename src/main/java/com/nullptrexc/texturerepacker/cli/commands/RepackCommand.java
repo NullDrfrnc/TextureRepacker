@@ -1,10 +1,11 @@
-package com.nullptrexc.texturerepacker.commands;
+package com.nullptrexc.texturerepacker.cli.commands;
 
 import com.nullptrexc.texturerepacker.TextureRepacker;
 import com.nullptrexc.texturerepacker.TextureRepackerFactory;
-import com.nullptrexc.texturerepacker.commands.converters.TargetConverter;
+import com.nullptrexc.texturerepacker.cli.commands.converters.TargetConverter;
 import org.apache.commons.vfs2.FileObject;
 import org.apache.commons.vfs2.FileType;
+import org.apache.commons.vfs2.Selectors;
 import org.apache.commons.vfs2.impl.StandardFileSystemManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -80,12 +81,14 @@ public class RepackCommand implements Callable<Integer> {
             FileObject zipFile = manager.resolveFile(
                     "file:///" + output.getPath() + "/" + name + ".zip"
             );
+            
+            zipFile.copyFrom(resourcePack, Selectors.SELECT_ALL);
 
             if (zipFile.exists()) {
                 LOGGER.error("The resource pack {} already exists.", output.getPath());
                 return 2;
             }
-            
+
             zipFile.createFile();
             
             crawlFolderStructure(resourcePack);

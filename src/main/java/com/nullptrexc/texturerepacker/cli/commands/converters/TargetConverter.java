@@ -1,7 +1,7 @@
-package com.nullptrexc.texturerepacker.commands.converters;
+package com.nullptrexc.texturerepacker.cli.commands.converters;
 
-import com.nullptrexc.texturerepacker.domain.MCVersion;
-import com.nullptrexc.texturerepacker.domain.PackFormat;
+import com.nullptrexc.texturerepacker.core.domain.MCVersion;
+import com.nullptrexc.texturerepacker.core.domain.PackFormat;
 import picocli.CommandLine;
 
 public class TargetConverter implements CommandLine .ITypeConverter<TargetConverter.Target> {

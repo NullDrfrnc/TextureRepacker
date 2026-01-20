@@ -1,7 +1,7 @@
 package com.nullptrexc.texturerepacker;
 
-import com.nullptrexc.texturerepacker.domain.MCVersion;
-import com.nullptrexc.texturerepacker.domain.PackFormat;
+import com.nullptrexc.texturerepacker.core.domain.MCVersion;
+import com.nullptrexc.texturerepacker.core.domain.PackFormat;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
