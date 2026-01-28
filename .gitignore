@@ -39,3 +39,4 @@ build/
 ### Project Specifics ###
 /src/main/resources/debugpacks/
 /logs/
+/src/main/resources/versions/

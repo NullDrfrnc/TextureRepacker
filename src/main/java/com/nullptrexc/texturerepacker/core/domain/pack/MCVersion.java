@@ -1,4 +1,4 @@
-package com.nullptrexc.texturerepacker.core.domain;
+package com.nullptrexc.texturerepacker.core.domain.pack;
 
 public class MCVersion implements Comparable<MCVersion> {
     private final int major;
