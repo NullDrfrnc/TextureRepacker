@@ -1,17 +1,10 @@
 format: 1
 
-paths:
-  textures:
-    path: "assets/{namespace}/textures/{category}"
-    categories:
-      - blocks
-      - entity
-      - environment
-      - font
-      - gui
-      - items
-      - map
-      - misc
-      - models
-      - painting
-      - particle
+minecraft_versions:
+  min: "1.6.1"
+  max: "1.8.9"
+
+transformations:
+  - type: "rename"
+    from: "assets/minecraft/textures/items/fish_cooked.png"
+    to: "assets/minecraft/textures/items/fish_cod_cooked.png"

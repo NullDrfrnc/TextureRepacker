@@ -10,6 +10,24 @@ public class Pack {
     @JsonProperty
     private String description;
 
+    public PackFormat getPack_format() {
+        return pack_format;
+    }
+
+    public Pack setPack_format(PackFormat pack_format) {
+        this.pack_format = pack_format;
+        return this;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Pack setDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Pack{" +
