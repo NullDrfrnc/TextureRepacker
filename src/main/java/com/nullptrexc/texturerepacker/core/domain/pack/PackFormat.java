@@ -1,4 +1,4 @@
-package com.nullptrexc.texturerepacker.core.domain;
+package com.nullptrexc.texturerepacker.core.domain.pack;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;

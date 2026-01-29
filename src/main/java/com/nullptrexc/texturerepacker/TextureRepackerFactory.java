@@ -1,6 +1,6 @@
 package com.nullptrexc.texturerepacker;
 
-import com.nullptrexc.texturerepacker.core.domain.PackFormat;
+import com.nullptrexc.texturerepacker.core.domain.pack.PackFormat;
 
 public class TextureRepackerFactory {
     private static final TextureRepackerFactory INSTANCE = new TextureRepackerFactory();
